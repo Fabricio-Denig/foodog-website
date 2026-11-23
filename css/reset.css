@@ -1,0 +1,90 @@
+/* ==========================================================================
+   RESET
+   Remove diferenças entre navegadores e define comportamentos mais previsíveis.
+   Não contém nada da identidade visual da Foodog — isso fica em global.css.
+   ========================================================================== */
+
+/* 1. border-box: width/height passam a INCLUIR padding e borda.
+      Sem isso, um elemento com width: 100% + padding: 20px estoura o pai. */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* 2. Remove margens padrão. Vamos controlar todo espaçamento manualmente. */
+* {
+  margin: 0;
+}
+
+/* 3. Impede o iOS de aumentar fontes sozinho ao girar o celular. */
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+/* 4. Body ocupa ao menos a altura da tela; texto renderiza mais suave. */
+body {
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* 5. Mídias viram blocos e nunca ultrapassam a largura do pai.
+      Isso evita imagens "vazando" no mobile. height: auto mantém a
+      proporção quando o CSS muda só a largura (os atributos width/height
+      do HTML continuam reservando o espaço antes da imagem carregar). */
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+img {
+  height: auto;
+}
+
+/* 6. Por padrão, campos de formulário NÃO herdam a fonte da página. */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+  color: inherit;
+}
+
+/* 7. Botões sem a aparência padrão do sistema operacional. */
+button {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+/* 8. Palavras muito longas quebram em vez de causar scroll horizontal. */
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+/* 9. Listas sem marcador e sem recuo APENAS quando tiverem role="list"
+      ou estiverem dentro de <nav>. Remover o estilo de todas as listas faz
+      o Safari parar de anunciá-las como lista para leitores de tela.
+      :where() zera a especificidade, para que as classes possam definir
+      o próprio padding. */
+:where(ul[role="list"], ol[role="list"], nav ul, nav ol) {
+  list-style: none;
+  padding: 0;
+}
+
+/* 10. Links herdam a cor do texto ao redor; estilizamos caso a caso. */
+a {
+  color: inherit;
+}

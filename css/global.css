@@ -1,0 +1,168 @@
+/* ==========================================================================
+   GLOBAL
+   Estilos-base de elementos e utilitários usados em toda a página.
+   ========================================================================== */
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  font-size: var(--fs-md);
+  font-weight: var(--fw-medium);
+  line-height: var(--lh-body);
+}
+
+/* O Figma aplica 1% de espaçamento em todos os textos. Em "em" o valor
+   precisa ser recalculado em cada elemento (se herdado do body, viraria
+   um valor fixo em px, igual para títulos e textos pequenos). */
+body,
+body * {
+  letter-spacing: var(--tracking);
+}
+
+/* Folhas, patas e curvas podem sair da borda da tela de propósito.
+   overflow-x: clip corta só o eixo horizontal de cada seção, então
+   nada gera rolagem lateral (no mobile, aplicar só no body não basta). */
+main > section,
+.site-footer {
+  overflow-x: clip;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-display);
+  font-weight: var(--fw-semibold);
+  line-height: var(--lh-heading);
+  font-variation-settings: "SOFT" 0, "WONK" 1;
+}
+
+h1 {
+  font-size: var(--fs-display);
+}
+
+h2 {
+  font-size: var(--fs-h2);
+}
+
+/* Âncoras não ficam escondidas atrás do topo da tela */
+section[id],
+footer[id] {
+  scroll-margin-top: var(--space-md);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 3px;
+}
+
+::selection {
+  background-color: var(--color-accent);
+  color: var(--color-on-accent);
+}
+
+/* --------------------------------------------------------------------------
+   Layout
+   -------------------------------------------------------------------------- */
+.container {
+  width: 100%;
+  max-width: calc(var(--container-max) + var(--gutter) * 2);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+/* --------------------------------------------------------------------------
+   Utilitários
+   -------------------------------------------------------------------------- */
+.text-accent {
+  color: var(--color-accent);
+}
+
+/* Quebras de linha que só existem no layout desktop ou no mobile do Figma */
+.br-desktop {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .br-mobile {
+    display: none;
+  }
+}
+
+@media (min-width: 1200px) {
+  .br-desktop {
+    display: inline;
+  }
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Link "pular para o conteúdo": só aparece ao receber foco pelo teclado */
+.skip-link {
+  position: absolute;
+  top: var(--space-xs);
+  left: var(--space-xs);
+  z-index: 100;
+  padding: var(--space-xs) var(--space-md);
+  border-radius: var(--radius-sm);
+  background-color: var(--color-text);
+  color: var(--cream);
+  font-weight: var(--fw-semibold);
+  text-decoration: none;
+  transform: translateY(-200%);
+}
+
+.skip-link:focus-visible {
+  transform: none;
+}
+
+/* Ícones do sprite: herdam a cor do texto (currentColor) */
+.icon-sprite {
+  display: none;
+}
+
+.icon {
+  width: 1.25em;
+  height: 1.25em;
+  flex-shrink: 0;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* Elementos puramente decorativos (folhas, patas, corações, traços) */
+.deco {
+  position: absolute;
+  z-index: 0;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* Rabiscos em terracota (coração, patas, traços, interrogação): o SVG é
+   sólido e a transparência medida no Figma vem daqui */
+.tint {
+  opacity: var(--tint, 0.1);
+}

@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Foodog — Comida natural congelada para cães</title>
+    <meta
+      name="description"
+      content="Refeições naturais preparadas com ingredientes reais e congeladas na medida certa para facilitar a rotina de quem quer mais qualidade de vida para o seu cão."
+    />
+    <meta name="theme-color" content="#F5EFE6" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,WONK@9..144,500..700,0..1&family=Manrope:wght@400..800&display=swap"
+    />
+
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/variables.css" />
+    <link rel="stylesheet" href="css/global.css" />
+    <link rel="stylesheet" href="css/components.css" />
+    <link rel="stylesheet" href="css/sections.css" />
+
+    <script src="js/main.js" defer></script>
+    <script src="js/faq.js" defer></script>
+  </head>
+
+  <body>
+    <!-- Ícones de interface (Lucide, licença ISC). Usados com <use href="#icon-..."> -->
+    <svg class="icon-sprite" aria-hidden="true" focusable="false">
+      <symbol id="icon-cart" viewBox="0 0 24 24">
+        <circle cx="8" cy="21" r="1" />
+        <circle cx="19" cy="21" r="1" />
+        <path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12" />
+      </symbol>
+      <symbol id="icon-menu" viewBox="0 0 24 24">
+        <path d="M4 6h16M4 12h16M4 18h16" />
+      </symbol>
+      <symbol id="icon-close" viewBox="0 0 24 24">
+        <path d="M18 6 6 18M6 6l12 12" />
+      </symbol>
+      <symbol id="icon-arrow-right" viewBox="0 0 24 24">
+        <path d="M5 12h14M12 5l7 7-7 7" />
+      </symbol>
+      <symbol id="icon-arrow-long" viewBox="0 0 25 16">
+        <path d="M1 8h22M16 1l7 7-7 7" />
+      </symbol>
+      <symbol id="icon-chevron-right" viewBox="0 0 24 24">
+        <path d="m9 18 6-6-6-6" />
+      </symbol>
+      <symbol id="icon-plus" viewBox="0 0 24 24">
+        <path d="M5 12h14M12 5v14" />
+      </symbol>
+      <symbol id="icon-leaf" viewBox="0 0 24 24">
+        <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z" />
+        <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12" />
+      </symbol>
+      <symbol id="icon-chef-hat" viewBox="0 0 24 24">
+        <path d="M17 21a1 1 0 0 0 1-1v-5.35c0-.46.32-.84.73-1.04a4 4 0 0 0-2.14-7.59 5 5 0 0 0-9.18 0 4 4 0 0 0-2.14 7.59c.41.2.73.58.73 1.04V20a1 1 0 0 0 1 1Z" />
+        <path d="M6 17h12" />
+      </symbol>
+      <symbol id="icon-snowflake" viewBox="0 0 24 24">
+        <path d="M2 12h20M12 2v20m8-6-4-4 4-4M4 8l4 4-4 4M16 4l-4 4-4-4m0 16 4-4 4 4" />
+      </symbol>
+      <symbol id="icon-bowl" viewBox="0 0 24 24">
+        <path d="M2 12h20l-2.2 6.6a2 2 0 0 1-1.9 1.4H6.1a2 2 0 0 1-1.9-1.4Z" />
+        <path d="M6 12c0-2.8 2.7-5 6-5s6 2.2 6 5" />
+      </symbol>
+      <symbol id="icon-shield-check" viewBox="0 0 24 24">
+        <path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1Z" />
+        <path d="m9 12 2 2 4-4" />
+      </symbol>
+    </svg>
+
+    <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+    <!-- ===================== HEADER ===================== -->
+    <header class="site-header">
+      <div class="container site-header__inner">
+        <a class="site-header__logo" href="#inicio" aria-label="Foodog — página inicial">
+          <img src="assets/brand/foodog-logo.svg" alt="" width="234" height="67" />
+        </a>
+
+        <nav class="site-nav" id="site-nav" aria-label="Principal">
+          <ul class="site-nav__list">
+            <li><a class="site-nav__link" href="#refeicoes">Marmitas</a></li>
+            <li><a class="site-nav__link" href="#processo">Nosso processo</a></li>
+            <li><a class="site-nav__link" href="#como-funciona">Como funciona</a></li>
+            <li><a class="site-nav__link" href="#sobre">Sobre nós</a></li>
+          </ul>
+          <a class="button button--primary site-nav__cta" href="#refeicoes">Pedir agora</a>
+        </nav>
+
+        <div class="site-header__actions">
+          <button class="cart-button" type="button" data-cart-toggle aria-label="Abrir carrinho, 0 itens">
+            <svg class="icon cart-button__icon" aria-hidden="true"><use href="#icon-cart" /></svg>
+            <span class="cart-button__count" data-cart-count aria-hidden="true">0</span>
+          </button>
+
+          <a class="button button--primary site-header__cta" href="#refeicoes">Pedir agora</a>
+
+          <button
+            class="menu-toggle"
+            type="button"
+            aria-controls="site-nav"
+            aria-expanded="false"
+            aria-label="Abrir menu"
+            data-menu-toggle
+          >
+            <svg class="icon menu-toggle__open" aria-hidden="true"><use href="#icon-menu" /></svg>
+            <svg class="icon menu-toggle__close" aria-hidden="true"><use href="#icon-close" /></svg>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main id="conteudo">
+      <!-- ===================== HERO ===================== -->
+      <section class="hero" id="inicio" aria-labelledby="hero-title">
+        <div class="container hero__inner">
+          <div class="hero__content">
+            <h1 class="hero__title" id="hero-title">
+              Comida <span class="text-accent">de verdade</span> para quem faz parte da família.
+            </h1>
+
+            <p class="hero__lead">
+              Refeições naturais preparadas com ingredientes reais,<br class="br-desktop" />
+              congeladas na medida certa para facilitar a rotina<br class="br-desktop" />
+              de quem quer oferecer mais qualidade de vida ao seu cão.
+            </p>
+
+            <img class="hero__doodle tint" src="assets/decorations/heart-sketch.svg" alt="" width="120" height="131" />
+            <img class="hero__doodle-lines tint" src="assets/decorations/sparkle-lines.svg" alt="" width="63" height="54" />
+
+            <div class="hero__actions">
+              <a class="button button--primary button--large" href="#refeicoes">
+                Conhecer as marmitas
+                <svg class="icon hero__actions-arrow" aria-hidden="true"><use href="#icon-arrow-right" /></svg>
+              </a>
+              <a class="text-link" href="#como-funciona">
+                Como funciona
+                <svg class="icon" aria-hidden="true"><use href="#icon-arrow-right" /></svg>
+              </a>
+            </div>
+
+            <ul class="hero__badges" role="list">
+              <li class="badge">
+                <span class="badge__icon"><img src="assets/icons/icon-leaf.svg" alt="" width="21" height="21" /></span>
+                <span class="badge__label">Ingredientes reais</span>
+              </li>
+              <li class="badge">
+                <span class="badge__icon"><img src="assets/icons/icon-no-preservatives.svg" alt="" width="26" height="30" /></span>
+                <span class="badge__label">Sem Conservantes</span>
+              </li>
+              <li class="badge">
+                <span class="badge__icon"><img src="assets/icons/icon-soup.svg" alt="" width="26" height="30" /></span>
+                <span class="badge__label">Praticidade</span>
+              </li>
+              <li class="badge">
+                <span class="badge__icon"><img src="assets/icons/icon-heart.svg" alt="" width="22" height="20" /></span>
+                <span class="badge__label">Cuidado</span>
+              </li>
+            </ul>
+
+            <a class="hero__scroll" href="#processo">
+              <img src="assets/icons/icon-chevron-down.svg" alt="" width="17" height="10" />
+              Role para descobrir
+            </a>
+          </div>
+
+          <div class="hero__art">
+            <img class="hero__backdrop" src="assets/hero/hero-backdrop.svg" alt="" width="940" height="576" />
+            <img
+              class="hero__dogs"
+              src="assets/hero/hero-dogs.svg"
+              alt="Ilustração de dois cachorros, um Jack Russell e um Border Collie, atrás de uma marmita Foodog com carne, cenoura e arroz."
+              width="773"
+              height="711"
+            />
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================== PROCESSO ===================== -->
+      <section class="process" id="processo" aria-labelledby="process-title">
+        <div class="container">
+          <header class="section-heading process__heading">
+            <h2 class="section-heading__title" id="process-title">
+              Cuidado em <span class="text-accent">cada etapa.</span>
+            </h2>
+            <p class="section-heading__lead">
+              Ingredientes de verdade, preparo<br class="br-desktop" /> caprichoso e praticidade para o<br class="br-desktop" /> dia a dia.
+            </p>
+          </header>
+
+          <div class="process__track">
+            <svg class="process__path" viewBox="0 0 1800 395" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+              <path d="M1039 222.224C1034.91 175.108 1030.11 126.165 1016.48 83.9869C973.289 5.26733 899.068 -7.64749 707.989 5.96349C596.821 26.2742 596.598 58.8217 549.5 153.75C529.309 200.111 511.343 209.495 493.5 222.224C462.843 249.787 368.583 218.913 323.337 193.629C153.749 82.7592 138.852 106.811 0 85.259" />
+              <path d="M1409 211.25C1406.31 241.343 1401.67 273.104 1394.66 309.71C1368.27 372.52 1334.1 392.482 1228.92 393.25C1107.61 390.813 1064.92 328.889 1039 219.705" />
+              <path d="M1409 210.75C1418.83 165.715 1432.73 143.115 1455.02 121.75C1487.68 98.1992 1510.8 90.6901 1562.95 90.25C1621.96 94.2334 1653.3 105.082 1698.84 175.75C1720.86 210.515 1735.7 226.853 1775.46 239.25C1813.1 249.348 1835.92 253.37 1875 258.25" />
+            </svg>
+
+            <ol class="process__steps" role="list">
+              <li class="process-step">
+                <span class="process-step__icon" aria-hidden="true">
+                  <svg class="icon"><use href="#icon-leaf" /></svg>
+                </span>
+                <span class="process-step__number" aria-hidden="true">01</span>
+                <div class="process-step__body">
+                  <h3 class="process-step__title">Seleção cuidadosa</h3>
+                  <p class="process-step__text">Escolhemos ingredientes frescos e de verdade.</p>
+                </div>
+              </li>
+              <li class="process-step">
+                <span class="process-step__icon" aria-hidden="true">
+                  <svg class="icon"><use href="#icon-chef-hat" /></svg>
+                </span>
+                <span class="process-step__number" aria-hidden="true">02</span>
+                <div class="process-step__body">
+                  <h3 class="process-step__title">Preparação cautelosa</h3>
+                  <p class="process-step__text">Receitas balanceadas preparadas com carinho.</p>
+                </div>
+              </li>
+              <li class="process-step">
+                <span class="process-step__icon" aria-hidden="true">
+                  <svg class="icon"><use href="#icon-snowflake" /></svg>
+                </span>
+                <span class="process-step__number" aria-hidden="true">03</span>
+                <div class="process-step__body">
+                  <h3 class="process-step__title">Congelamos</h3>
+                  <p class="process-step__text">Congelamento para preservar nutrientes e sabor.</p>
+                </div>
+              </li>
+              <li class="process-step">
+                <span class="process-step__icon" aria-hidden="true">
+                  <svg class="icon"><use href="#icon-bowl" /></svg>
+                </span>
+                <span class="process-step__number" aria-hidden="true">04</span>
+                <div class="process-step__body">
+                  <h3 class="process-step__title">É só servir</h3>
+                  <p class="process-step__text">Prático, seguro e pronto para o momento mais feliz do seu amigo.</p>
+                </div>
+              </li>
+            </ol>
+          </div>
+        </div>
+
+        <img class="deco process__deco-heart tint" src="assets/decorations/heart-sketch.svg" alt="" width="120" height="131" />
+        <img class="deco process__deco-paw tint" src="assets/decorations/paw-print.svg" alt="" width="150" height="157" />
+      </section>
+
+      <!-- ===================== NOSSAS REFEIÇÕES ===================== -->
+      <section class="meals" id="refeicoes" aria-labelledby="meals-title">
+        <!-- No mobile a onda tem outro desenho (traçado medido no Figma) -->
+        <svg class="wave wave--top wave--top-mobile" viewBox="0 0 390 44" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+          <path class="wave__fill" d="M0 0H390V1C330 18 220 34 160 34.5C110 35 60 26 0 14Z" />
+          <path class="wave__line" d="M390 1C330 18 220 34 160 34.5C110 35 60 26 0 14" />
+        </svg>
+        <svg class="wave wave--top wave--top-desktop" viewBox="0 0 1800 100" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+          <path class="wave__fill" d="M0 48C100 20 180 8 260 12C400 20 520 55 700 72C820 82 900 80 1000 70C1150 58 1250 35 1400 15C1500 2 1620 2 1700 14C1750 20 1780 24 1800 26V0H0Z" />
+          <path class="wave__line" d="M0 48C100 20 180 8 260 12C400 20 520 55 700 72C820 82 900 80 1000 70C1150 58 1250 35 1400 15C1500 2 1620 2 1700 14C1750 20 1780 24 1800 26" />
+        </svg>
+
+        <span class="meals__marker" aria-hidden="true">
+          <svg class="icon"><use href="#icon-leaf" /></svg>
+        </span>
+
+        <div class="container meals__inner">
+          <header class="section-heading meals__heading">
+            <h2 class="section-heading__title" id="meals-title">
+              Nossas <span class="text-accent">refeições.</span>
+            </h2>
+            <p class="section-heading__lead">
+              Refeições naturais, balanceadas<br class="br-desktop" />
+              e congeladas para facilitar<br />
+              a sua rotina e cuidar da saúde<br class="br-desktop" />
+              do seu melhor amigo.
+            </p>
+            <a class="button button--outline" href="#cardapio">
+              Ver todas as marmitas
+              <svg class="icon" aria-hidden="true"><use href="#icon-arrow-right" /></svg>
+            </a>
+          </header>
+
+          <div class="meals__catalog" data-carousel>
+            <ul class="meals__list" id="cardapio" role="list" data-carousel-track>
+              <li>
+                <article
+                  class="meal-card"
+                  data-product
+                  data-product-id="carne"
+                  data-product-name="Marmita de Carne"
+                  data-product-price="24.90"
+                >
+                  <div class="meal-card__media">
+                    <img
+                      class="meal-card__image"
+                      src="assets/meals/meal-beef.webp"
+                      alt="Marmita de carne em cubos com arroz integral, cenoura e abobrinha."
+                      width="720"
+                      height="373"
+                      loading="lazy"
+                    />
+                    <span class="meal-card__badge"><img src="assets/icons/icon-ox.webp" alt="" width="40" height="40" /></span>
+                  </div>
+                  <div class="meal-card__body">
+                    <div class="meal-card__header">
+                      <h3 class="meal-card__name">Carne</h3>
+                      <span class="meal-card__weight">500g</span>
+                    </div>
+                    <p class="meal-card__description">Carne, arroz integral, cenoura e abobrinha.</p>
+                    <ul class="tag-list" role="list" aria-label="Características">
+                      <li class="tag">Sem conservantes</li>
+                      <li class="tag">100% natural</li>
+                      <li class="tag">Grãos integrais</li>
+                    </ul>
+                    <div class="meal-card__footer">
+                      <p class="meal-card__price"><span class="visually-hidden">Preço: </span>R$&nbsp;24,90</p>
+                      <button class="button button--add" type="button" data-add-to-cart aria-label="Adicionar Marmita de Carne ao pedido">
+                        Adicionar
+                        <svg class="icon" aria-hidden="true"><use href="#icon-cart" /></svg>
+                      </button>
+                    </div>
+                  </div>
+                </article>
+              </li>
+
+              <li>
+                <article
+                  class="meal-card"
+                  data-product
+                  data-product-id="frango"
+                  data-product-name="Marmita de Frango"
+                  data-product-price="22.90"
+                >
+                  <div class="meal-card__media">
+                    <img
+                      class="meal-card__image"
+                      src="assets/meals/meal-chicken.webp"
+                      alt="Marmita de frango em cubos com arroz integral, beterraba e brócolis."
+                      width="720"
+                      height="370"
+                      loading="lazy"
+                    />
+                    <span class="meal-card__badge"><img src="assets/icons/icon-chicken.webp" alt="" width="40" height="40" /></span>
+                  </div>
+                  <div class="meal-card__body">
+                    <div class="meal-card__header">
+                      <h3 class="meal-card__name">Frango</h3>
+                      <span class="meal-card__weight">500g</span>
+                    </div>
+                    <p class="meal-card__description">Frango, arroz integral, beterraba e brócolis.</p>
+                    <ul class="tag-list" role="list" aria-label="Características">
+                      <li class="tag">Sem conservantes</li>
+                      <li class="tag">100% natural</li>
+                      <li class="tag">Grãos integrais</li>
+                    </ul>
+                    <div class="meal-card__footer">
+                      <p class="meal-card__price"><span class="visually-hidden">Preço: </span>R$&nbsp;22,90</p>
+                      <button class="button button--add" type="button" data-add-to-cart aria-label="Adicionar Marmita de Frango ao pedido">
+                        Adicionar
+                        <svg class="icon" aria-hidden="true"><use href="#icon-cart" /></svg>
+                      </button>
+                    </div>
+                  </div>
+                </article>
+              </li>
+
+              <li>
+                <article
+                  class="meal-card"
+                  data-product
+                  data-product-id="peixe"
+                  data-product-name="Marmita de Peixe"
+                  data-product-price="23.90"
+                >
+                  <div class="meal-card__media">
+                    <img
+                      class="meal-card__image"
+                      src="assets/meals/meal-fish.webp"
+                      alt="Marmita de filé de peixe com arroz integral, batata-doce e abobrinha."
+                      width="720"
+                      height="370"
+                      loading="lazy"
+                    />
+                    <span class="meal-card__badge"><img src="assets/icons/icon-fish.webp" alt="" width="40" height="40" /></span>
+                  </div>
+                  <div class="meal-card__body">
+                    <div class="meal-card__header">
+                      <h3 class="meal-card__name">Filé de peixe</h3>
+                      <span class="meal-card__weight">500g</span>
+                    </div>
+                    <p class="meal-card__description">Filé de peixe, arroz integral, batata doce e abobrinha.</p>
+                    <ul class="tag-list" role="list" aria-label="Características">
+                      <li class="tag">Sem conservantes</li>
+                      <li class="tag">100% natural</li>
+                      <li class="tag">Grãos integrais</li>
+                    </ul>
+                    <div class="meal-card__footer">
+                      <p class="meal-card__price"><span class="visually-hidden">Preço: </span>R$&nbsp;23,90</p>
+                      <button class="button button--add" type="button" data-add-to-cart aria-label="Adicionar Marmita de Peixe ao pedido">
+                        Adicionar
+                        <svg class="icon" aria-hidden="true"><use href="#icon-cart" /></svg>
+                      </button>
+                    </div>
+                  </div>
+                </article>
+              </li>
+            </ul>
+
+            <button class="carousel-next" type="button" aria-controls="cardapio" aria-label="Ver próximas marmitas" data-carousel-next>
+              <svg class="icon" aria-hidden="true"><use href="#icon-chevron-right" /></svg>
+            </button>
+
+            <div class="carousel-dots" data-carousel-dots hidden></div>
+          </div>
+        </div>
+
+        <img class="deco meals__leaf meals__leaf--left" src="assets/decorations/leaf-branch-left.webp" alt="" width="249" height="266" loading="lazy" />
+        <img class="deco meals__leaf meals__leaf--right" src="assets/decorations/leaf-branch-right.webp" alt="" width="291" height="363" loading="lazy" />
+        <img class="deco meals__deco-heart tint" src="assets/decorations/heart-sketch.svg" alt="" width="120" height="131" />
+        <img class="deco meals__deco-paw tint" src="assets/decorations/paw-print.svg" alt="" width="150" height="157" />
+
+        <svg class="wave wave--bottom wave--bottom-desktop" viewBox="0 0 1800 100" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+          <path class="wave__fill" d="M0 92C120 80 220 70 300 61C400 50 450 44 500 34C600 18 650 10 700 8C770 5 820 3 900 4C1000 5 1100 12 1200 19C1300 28 1350 36 1400 47C1450 56 1480 61 1500 64C1600 78 1700 90 1800 96V100H0Z" />
+          <path class="wave__line" d="M0 92C120 80 220 70 300 61C400 50 450 44 500 34C600 18 650 10 700 8C770 5 820 3 900 4C1000 5 1100 12 1200 19C1300 28 1350 36 1400 47C1450 56 1480 61 1500 64C1600 78 1700 90 1800 96" />
+        </svg>
+        <svg class="wave wave--bottom wave--bottom-mobile" viewBox="0 0 390 40" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+          <path class="wave__fill" d="M0 5C80 22 160 38 250 38.5C320 39 360 30 390 22V40H0Z" />
+          <path class="wave__line" d="M0 5C80 22 160 38 250 38.5C320 39 360 30 390 22" />
+        </svg>
+      </section>
+
+      <!-- ===================== DEPOIMENTOS ===================== -->
+      <section class="testimonials" id="depoimentos" aria-labelledby="testimonials-title">
+        <div class="container">
+          <h2 class="section-heading__title testimonials__title" id="testimonials-title">
+            Aprovado por quem <span class="text-accent">realmente importa.</span>
+          </h2>
+
+          <div class="testimonials__board">
+            <ul class="testimonials__list" role="list">
+              <li>
+                <figure class="testimonial" style="--tilt: -3.3deg">
+                  <div class="polaroid">
+                    <img src="assets/testimonials/testimonial-buddy.webp" alt="Buddy, um golden retriever, deitado ao lado de uma tigela Foodog." width="400" height="538" loading="lazy" />
+                  </div>
+                  <figcaption class="testimonial__caption">
+                    <blockquote class="testimonial__quote">
+                      <p>Ele sempre foi<br /> difícil pra comer.<br /> Agora vê a marmita<br /> chegando e já fica<br /> esperando do lado.</p>
+                    </blockquote>
+                    <p class="testimonial__pet">
+                      <img src="assets/icons/icon-paw.webp" alt="" width="30" height="30" />
+                      Buddy
+                    </p>
+                    <p class="testimonial__owner">Tutor: Fernando R.</p>
+                  </figcaption>
+                </figure>
+              </li>
+              <li>
+                <figure class="testimonial" style="--tilt: 2.3deg">
+                  <div class="polaroid">
+                    <img src="assets/testimonials/testimonial-mika.webp" alt="Mika, uma cadela rottweiler, deitada diante de uma tigela Foodog." width="400" height="586" loading="lazy" />
+                  </div>
+                  <figcaption class="testimonial__caption">
+                    <blockquote class="testimonial__quote">
+                      <p>Notei diferença<br /> na disposição<br /> e na saúde em<br /> poucas semanas.</p>
+                    </blockquote>
+                    <p class="testimonial__pet">
+                      <img src="assets/icons/icon-paw.webp" alt="" width="30" height="30" />
+                      Mika
+                    </p>
+                    <p class="testimonial__owner">Tutor: Pedro T.</p>
+                  </figcaption>
+                </figure>
+              </li>
+              <li>
+                <figure class="testimonial" style="--tilt: -4.3deg">
+                  <div class="polaroid">
+                    <img src="assets/testimonials/testimonial-maju.webp" alt="Maju, uma cadela de pelo cinza, deitada ao lado de uma tigela Foodog." width="400" height="626" loading="lazy" />
+                  </div>
+                  <figcaption class="testimonial__caption">
+                    <blockquote class="testimonial__quote">
+                      <p>Gosto de saber<br /> exatamente o que<br /> ela está comendo.<br /> Dá pra reconhecer<br /> os ingredientes<br /> e ela adora.</p>
+                    </blockquote>
+                    <p class="testimonial__pet">
+                      <img src="assets/icons/icon-paw.webp" alt="" width="30" height="30" />
+                      Maju
+                    </p>
+                    <p class="testimonial__owner">Tutor: Juliana M.</p>
+                  </figcaption>
+                </figure>
+              </li>
+              <li>
+                <figure class="testimonial" style="--tilt: 4.5deg">
+                  <div class="polaroid">
+                    <img src="assets/testimonials/testimonial-thor.webp" alt="Thor, um border collie, deitado diante de uma tigela Foodog." width="400" height="593" loading="lazy" />
+                  </div>
+                  <figcaption class="testimonial__caption">
+                    <blockquote class="testimonial__quote">
+                      <p>O Thor já<br class="br-desktop" /> reconhece a hora<br class="br-desktop" /> da refeição. Pra<br class="br-desktop" /> mim, virou uma<br class="br-desktop" /> forma prática de<br class="br-desktop" /> cuidar melhor dele.</p>
+                    </blockquote>
+                    <p class="testimonial__pet">
+                      <img src="assets/icons/icon-paw.webp" alt="" width="30" height="30" />
+                      Thor
+                    </p>
+                    <p class="testimonial__owner">Tutor: Carla S.</p>
+                  </figcaption>
+                </figure>
+              </li>
+            </ul>
+
+            <!-- Fio que passa por trás dos cartões no mobile (traçado medido no Figma) -->
+            <svg class="testimonials__thread testimonials__thread--mobile" viewBox="-27 0 390 530" aria-hidden="true" focusable="false">
+              <path d="M-6 65C-16 95-20 150-18 190C-16 225-8 260 10 275C60 300 120 320 150 330C175 340 195 350 215 365C260 400 250 470 205 500C185 510 150 516 125 519L100 522" />
+            </svg>
+
+            <!-- Fio que liga as polaroids no desktop (traçado medido no Figma) -->
+            <svg class="testimonials__thread testimonials__thread--desktop" viewBox="0 0 1592 70" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+              <path d="M106 8C166 40 230 59 274 59C320 59 404 28 454 3" />
+              <path d="M572 8C622 37 690 59 728 59C770 59 802 43 842 23" />
+              <path d="M974 16C1014 36 1060 56 1093 56C1135 56 1203 31 1243 11" />
+            </svg>
+          </div>
+        </div>
+
+        <img class="deco testimonials__deco-sparkle testimonials__deco-sparkle--left tint" src="assets/decorations/sparkle-lines.svg" alt="" width="63" height="54" />
+        <img class="deco testimonials__deco-sparkle testimonials__deco-sparkle--right tint" src="assets/decorations/sparkle-lines.svg" alt="" width="63" height="54" />
+        <img class="deco testimonials__deco-sparkle testimonials__deco-sparkle--middle tint" src="assets/decorations/sparkle-lines.svg" alt="" width="63" height="54" />
+        <img class="deco testimonials__deco-paw tint" src="assets/decorations/paw-print.svg" alt="" width="150" height="157" />
+        <img class="deco testimonials__deco-heart tint" src="assets/decorations/heart-sketch.svg" alt="" width="120" height="131" />
+      </section>
+
+      <!-- ===================== FAQ ===================== -->
+      <section class="faq" id="duvidas" aria-labelledby="faq-title">
+        <div class="container faq__inner">
+          <div class="faq__intro">
+            <h2 class="section-heading__title faq__title" id="faq-title">
+              Antes de pedir, talvez você queira <span class="text-accent">saber.</span>
+            </h2>
+            <p class="section-heading__lead">
+              Reunimos as principais dúvidas dos nossos clientes para tornar tudo mais fácil e transparente.
+            </p>
+
+            <div class="contact-card">
+              <span class="contact-card__icon">
+                <img src="assets/icons/icon-whatsapp-terracotta.webp" alt="" width="52" height="52" />
+              </span>
+              <p class="contact-card__text">
+                Não encontrou o que procurava?
+                <strong>Fala com a gente.</strong>
+              </p>
+              <a class="text-link text-link--caps contact-card__link" href="https://wa.me/5511961771968" target="_blank" rel="noopener">
+                Falar com a gente
+                <svg class="icon icon--long" aria-hidden="true"><use href="#icon-arrow-long" /></svg>
+              </a>
+            </div>
+          </div>
+
+          <div class="faq__list" data-faq>
+            <div class="faq-item">
+              <h3 class="faq-item__heading">
+                <button class="faq-item__button" type="button" id="faq-q1" aria-expanded="true" aria-controls="faq-a1">
+                  <img class="faq-item__icon" src="assets/icons/icon-snowflake.svg" alt="" width="43" height="37" />
+                  <span class="faq-item__question">Como descongelar as marmitas?</span>
+                  <span class="faq-item__toggle" aria-hidden="true"></span>
+                </button>
+              </h3>
+              <div class="faq-item__panel" id="faq-a1" role="region" aria-labelledby="faq-q1">
+                <p>
+                  Retire do freezer e deixe na geladeira por algumas horas ou de um dia para o outro.
+                  Sirva em temperatura ambiente ou levemente fresca. Não é necessário aquecer.
+                </p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <h3 class="faq-item__heading">
+                <button class="faq-item__button" type="button" id="faq-q2" aria-expanded="false" aria-controls="faq-a2">
+                  <img class="faq-item__icon" src="assets/icons/icon-calendar.svg" alt="" width="41" height="41" />
+                  <span class="faq-item__question">Quanto tempo dura no freezer?</span>
+                  <span class="faq-item__toggle" aria-hidden="true"></span>
+                </button>
+              </h3>
+              <!-- PLACEHOLDER: resposta provisória, não consta no Figma. Depende de validação de conteúdo pelo cliente. -->
+              <div class="faq-item__panel" id="faq-a2" role="region" aria-labelledby="faq-q2" hidden>
+                <p>
+                  Mantidas no freezer, as marmitas conservam sabor e nutrientes por até 3 meses.
+                  Depois de descongeladas, devem ser consumidas em até 3 dias, sempre na geladeira.
+                </p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <h3 class="faq-item__heading">
+                <button class="faq-item__button" type="button" id="faq-q3" aria-expanded="false" aria-controls="faq-a3">
+                  <img class="faq-item__icon" src="assets/icons/icon-delivery.webp" alt="" width="45" height="44" />
+                  <span class="faq-item__question">Como funciona a entrega?</span>
+                  <span class="faq-item__toggle" aria-hidden="true"></span>
+                </button>
+              </h3>
+              <!-- PLACEHOLDER: resposta provisória, não consta no Figma. Depende de validação de conteúdo pelo cliente. -->
+              <div class="faq-item__panel" id="faq-a3" role="region" aria-labelledby="faq-q3" hidden>
+                <p>
+                  Depois de confirmar o pedido pelo WhatsApp, combinamos o melhor dia e horário.
+                  As marmitas chegam congeladas, em embalagem térmica, prontas para ir direto ao freezer.
+                </p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <h3 class="faq-item__heading">
+                <button class="faq-item__button" type="button" id="faq-q4" aria-expanded="false" aria-controls="faq-a4">
+                  <img class="faq-item__icon" src="assets/icons/icon-heart-terracotta.svg" alt="" width="43" height="37" />
+                  <span class="faq-item__question">Posso misturar com a ração?</span>
+                  <span class="faq-item__toggle" aria-hidden="true"></span>
+                </button>
+              </h3>
+              <!-- PLACEHOLDER: resposta provisória, não consta no Figma. Depende de validação de conteúdo pelo cliente. -->
+              <div class="faq-item__panel" id="faq-a4" role="region" aria-labelledby="faq-q4" hidden>
+                <p>
+                  Pode. Na transição, misture aos poucos a marmita à ração ao longo de alguns dias.
+                  Em caso de dúvida sobre a quantidade ideal, converse com o veterinário do seu cão.
+                </p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <h3 class="faq-item__heading">
+                <button class="faq-item__button" type="button" id="faq-q5" aria-expanded="false" aria-controls="faq-a5">
+                  <img class="faq-item__icon" src="assets/icons/icon-map-pin.svg" alt="" width="35" height="43" />
+                  <span class="faq-item__question">Qual é a área de cobertura de vocês?</span>
+                  <span class="faq-item__toggle" aria-hidden="true"></span>
+                </button>
+              </h3>
+              <!-- PLACEHOLDER: resposta provisória, não consta no Figma. Depende de validação de conteúdo pelo cliente. -->
+              <div class="faq-item__panel" id="faq-a5" role="region" aria-labelledby="faq-q5" hidden>
+                <p>
+                  Fale com a gente pelo WhatsApp informando o seu CEP. Confirmamos na hora se
+                  atendemos o seu endereço e qual é o prazo de entrega.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <img class="deco faq__deco-question tint" src="assets/decorations/question-mark.svg" alt="" width="195" height="385" />
+        <img class="deco faq__deco-heart tint" src="assets/decorations/heart-sketch.svg" alt="" width="120" height="131" />
+        <img class="deco faq__deco-sparkle tint" src="assets/decorations/sparkle-lines.svg" alt="" width="63" height="54" />
+      </section>
+
+      <!-- ===================== CTA FINAL ===================== -->
+      <section class="order-steps" id="como-funciona" aria-labelledby="order-steps-title">
+        <svg class="order-steps__curve" viewBox="0 0 1800 112" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+          <path class="order-steps__curve-band" d="M0 0H1800V14Q900 204 0 14Z" />
+          <path class="order-steps__curve-fill" d="M0 0H1800V4Q900 190 0 4Z" />
+        </svg>
+
+        <div class="container order-steps__inner">
+          <h2 class="order-steps__title" id="order-steps-title">
+            Escolheu? <span class="order-steps__title-line">A gente cuida do resto.</span>
+          </h2>
+
+          <ol class="order-steps__list" role="list">
+            <li class="order-step">
+              <span class="order-step__icon order-step__icon--bowl" aria-hidden="true">
+                <img class="order-step__heart" src="assets/icons/icon-heart-amber.svg" alt="" width="24" height="21" />
+                <img src="assets/icons/icon-pet-food.webp" alt="" width="72" height="72" />
+              </span>
+              <div class="order-step__body">
+                <span class="order-step__number" aria-hidden="true">01</span>
+                <h3 class="order-step__title">Monte seu pedido</h3>
+                <p class="order-step__text">Escolha os sabores, as quantidades<br /> e monte o combo ideal para o seu pet.</p>
+              </div>
+            </li>
+            <li class="order-step">
+              <span class="order-step__icon" aria-hidden="true">
+                <img src="assets/icons/icon-whatsapp-amber.webp" alt="" width="60" height="60" />
+              </span>
+              <div class="order-step__body">
+                <span class="order-step__number" aria-hidden="true">02</span>
+                <h3 class="order-step__title">Finalize pelo Whatsapp</h3>
+                <p class="order-step__text">Fale com a gente e finalize o pedido<br class="br-desktop" /> de forma rápida e segura.</p>
+              </div>
+            </li>
+            <li class="order-step">
+              <span class="order-step__icon" aria-hidden="true">
+                <img src="assets/icons/icon-snowflake-amber.webp" alt="" width="60" height="60" />
+              </span>
+              <div class="order-step__body">
+                <span class="order-step__number" aria-hidden="true">03</span>
+                <h3 class="order-step__title">Receba congelado</h3>
+                <p class="order-step__text">Entregamos com todo o cuidado<br class="br-mobile" /> para<br class="br-desktop" /> manter o frescor e os nutrientes.</p>
+              </div>
+            </li>
+          </ol>
+
+          <div class="order-steps__action">
+            <button class="button button--primary button--checkout" type="button" data-cart-checkout>
+              Finalizar meu pedido
+              <svg class="icon icon--long" aria-hidden="true"><use href="#icon-arrow-long" /></svg>
+            </button>
+            <p class="order-steps__note">
+              <svg class="icon" aria-hidden="true"><use href="#icon-shield-check" /></svg>
+              Seus dados e seu pet sempre protegidos.
+            </p>
+          </div>
+        </div>
+
+        <img class="deco order-steps__deco-heart tint" src="assets/decorations/heart-sketch.svg" alt="" width="120" height="131" />
+        <img class="deco order-steps__dash order-steps__dash--start" src="assets/decorations/dashed-path-01.svg" alt="" width="184" height="50" />
+        <img class="deco order-steps__dash order-steps__dash--middle" src="assets/decorations/dashed-path-02.svg" alt="" width="94" height="24" />
+        <img class="deco order-steps__dash order-steps__dash--end" src="assets/decorations/dashed-path-03.svg" alt="" width="119" height="27" />
+        <img class="deco order-steps__loop" src="assets/decorations/dashed-loop.svg" alt="" width="274" height="218" />
+      </section>
+    </main>
+
+    <!-- ===================== FOOTER ===================== -->
+    <footer class="site-footer" id="sobre">
+      <div class="container site-footer__inner">
+        <div class="site-footer__brand">
+          <a href="#inicio" aria-label="Foodog — voltar ao início">
+            <img src="assets/brand/foodog-logo-light.svg" alt="" width="234" height="67" loading="lazy" />
+          </a>
+          <p>Comida de verdade para quem faz parte da família.</p>
+        </div>
+
+        <ul class="social-links" role="list" aria-label="Redes sociais">
+          <li>
+            <a class="social-links__link" href="https://www.instagram.com/foodog.br" target="_blank" rel="noopener" aria-label="Instagram">
+              <img src="assets/icons/icon-instagram.webp" alt="" width="23" height="23" loading="lazy" />
+            </a>
+          </li>
+          <li>
+            <a class="social-links__link" href="#" aria-label="TikTok">
+              <img src="assets/icons/icon-tiktok.webp" alt="" width="23" height="23" loading="lazy" />
+            </a>
+          </li>
+          <li>
+            <a class="social-links__link" href="#" aria-label="Facebook">
+              <img src="assets/icons/icon-facebook.webp" alt="" width="23" height="23" loading="lazy" />
+            </a>
+          </li>
+        </ul>
+
+        <nav class="footer-quicklinks" aria-label="Atalhos">
+          <ul role="list">
+            <li><a href="#refeicoes">Marmitas<svg class="icon" aria-hidden="true"><use href="#icon-chevron-right" /></svg></a></li>
+            <li><a href="#processo">Nosso processo<svg class="icon" aria-hidden="true"><use href="#icon-chevron-right" /></svg></a></li>
+            <li><a href="#como-funciona">Como funciona<svg class="icon" aria-hidden="true"><use href="#icon-chevron-right" /></svg></a></li>
+            <li><a href="#duvidas">Dúvidas frequentes<svg class="icon" aria-hidden="true"><use href="#icon-chevron-right" /></svg></a></li>
+          </ul>
+        </nav>
+
+        <nav class="footer-columns" aria-label="Rodapé">
+          <div class="footer-column">
+            <h2 class="footer-column__title">Cardápio</h2>
+            <ul role="list">
+              <li><a href="#refeicoes">Todos os sabores</a></li>
+              <li><a href="#refeicoes">Combos</a></li>
+              <li><a href="#como-funciona">Como funciona</a></li>
+              <li><a href="#processo">Ingredientes</a></li>
+            </ul>
+          </div>
+          <div class="footer-column">
+            <h2 class="footer-column__title">Sobre a Foodog</h2>
+            <ul role="list">
+              <li><a href="#">Nossa história</a></li>
+              <li><a href="#">Missão e valores</a></li>
+              <li><a href="#">Blog</a></li>
+              <li><a href="#duvidas">Dúvidas frequentes</a></li>
+            </ul>
+          </div>
+          <div class="footer-column">
+            <h2 class="footer-column__title">Atendimento</h2>
+            <ul role="list">
+              <li><a href="https://wa.me/5511961771968" target="_blank" rel="noopener">Fale com a gente</a></li>
+              <li><a href="#duvidas">Entrega e prazos</a></li>
+              <li><a href="#">Trocas e reembolsos</a></li>
+              <li><a href="#">Política de privacidade</a></li>
+            </ul>
+          </div>
+        </nav>
+
+        <div class="footer-contact">
+          <h2 class="footer-contact__title">Fale com a gente</h2>
+          <ul role="list">
+            <li>
+              <a href="https://wa.me/5511961771968" target="_blank" rel="noopener">
+                <img src="assets/icons/icon-whatsapp-cream.webp" alt="" width="32" height="32" loading="lazy" />
+                <span><span class="visually-hidden">WhatsApp: </span>(11) 96177-1968</span>
+              </a>
+            </li>
+            <li>
+              <a href="mailto:foodogbr@gmail.com">
+                <img src="assets/icons/icon-mail.svg" alt="" width="35" height="25" loading="lazy" />
+                <span><span class="visually-hidden">E-mail: </span>foodogbr@gmail.com</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="site-footer__bottom">
+          <ul class="footer-legal" role="list">
+            <li><a href="#">Política de privacidade</a></li>
+            <li><a href="#">Termos de uso</a></li>
+          </ul>
+          <p class="site-footer__copyright">© 2026 Foodog. Todos os direitos reservados.</p>
+        </div>
+      </div>
+
+      <img class="deco site-footer__dog" src="assets/decorations/dog-outline.svg" alt="" width="259" height="244" loading="lazy" />
+      <img class="deco site-footer__heart" src="assets/decorations/heart-outline-dark.svg" alt="" width="81" height="84" loading="lazy" />
+    </footer>
+  </body>
+</html>
